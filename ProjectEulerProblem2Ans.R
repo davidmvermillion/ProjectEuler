@@ -1,5 +1,7 @@
 # Utilizing hints on loops from:
 # https://eeecon.uibk.ac.at/~discdown/rprogramming/loops.html
+# Timing hints came from here:
+# https://www.r-bloggers.com/2017/05/5-ways-to-measure-running-time-of-r-code/
 
 # First Working Iteration -------------------------------------------------
 
