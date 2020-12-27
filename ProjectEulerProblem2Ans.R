@@ -7,12 +7,13 @@
 
 # Initialize variables
 rm()
+StartTime <- Sys.time()
 N <- 4e6    # Max value
 x <- c(1, 2)   # Starting vector
 i <- 2      # Starting iteration counter
 
 # Calculate Fibonacci sequence to N total value
-StartTime <- Sys.time()
+
 while (x[i] < N) {
   if (x[i]+x[i-1] > N) break
   x <- c(x, x[i]+x[i-1])
@@ -26,12 +27,11 @@ x
 # https://www.quora.com/How-can-I-extract-even-odd-numbers-from-a-list-of-numbers-in-R
 e <- x%%2 == 0
 a <- x[e]
-EndTime <- Sys.time()
-EndTime - StartTime
 
 # Calculate and display answer
 sum(a)
-
+EndTime <- Sys.time()
+EndTime - StartTime
 
 # More Compact Answer Attempt---------------------------------------------------
 
