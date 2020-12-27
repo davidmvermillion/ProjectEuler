@@ -35,7 +35,7 @@ EndTime - StartTime
 
 # More Compact Answer Attempt---------------------------------------------------
 
-# Line 48 breaks script
+# Line 50 breaks script
 
 # Initialize variables
 rm()
