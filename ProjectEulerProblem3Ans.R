@@ -4,7 +4,7 @@
 # https://stackoverflow.com/questions/43336074/how-does-r-clear-all-global-environment-quickly?noredirect=1&lq=1
 rm(list=ls())
 StartTime <- Sys.time()
-N <- 600    # Max value
+N <- 60000    # Max value
 x <- c(N,N-1)   # Starting vector
 i <- 2      # Starting iteration counter
 
@@ -26,29 +26,20 @@ EndTime <- Sys.time()
 EndTime - StartTime
 # Find Prime Answers
 # rm(i)
-PrimeList <- c(3, 5, 7, 11, 13)
+x1 <- c(1, 2)
+PrimeList <- c(1, 2, 3, 5, 7, 11, 13)
 for (i in 1:length(PrimeList)) {
-  if (IntAns[i] !%% PrimeList[i]) {
+  if (IntAns[i]/PrimeList[i] = 1) {
     next
   }
     print(i)
 }
-PrimeTest1 <- IntAns%%2 != 0
-PrimeAns1 <- IntAns[PrimeTest1]
-PrimeTest2 <- PrimeAns1%%3 != 0
-PrimeAns2 <- PrimeAns1[PrimeTest2]
-PrimeTest3 <- PrimeAns2%%5 != 0
-PrimeAns3 <- PrimeAns2[PrimeTest3]
-PrimeAns3    # Use for testing code at low values of N
+x1
 
-# Find largest value of PrimeAns
-max(PrimeAns)
-
-
-EndTime <- Sys.time()
-EndTime - StartTime
-
-IntAns
-PrimeAns1
-PrimeAns2
-PrimeAns3
+# 
+# # Find largest value of PrimeAns
+# max(PrimeAns)
+# 
+# 
+# EndTime <- Sys.time()
+# EndTime - StartTime
