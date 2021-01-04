@@ -1,17 +1,19 @@
 # Finding the largest prime factor of 600851475143
 
-rm()
+# Clarified environemtn clearing function from
+# https://stackoverflow.com/questions/43336074/how-does-r-clear-all-global-environment-quickly?noredirect=1&lq=1
+rm(list=ls())
 StartTime <- Sys.time()
-N <- 6000    # Max value
+N <- 600    # Max value
 x <- c(N,N-1)   # Starting vector
 i <- 2      # Starting iteration counter
 
 # Calculate all factors
 while (x[i] > 1) {
-  #if (x[i]+x[i-1] > N) break
   x <- c(x, N/i)
   i <- i+1
 }
+
 
 # Find Integer Answers
 # Inspiration from https://stackoverflow.com/questions/3476782/check-if-the-number-is-integer
@@ -21,6 +23,8 @@ IntAns1 <- x[IntTest]
 IntAns <- IntAns1[-2]   # Removes artifact of calculation
 IntAns    # Use for testing code at low values of N
 
+EndTime <- Sys.time()
+EndTime - StartTime
 # Find Prime Answers
 # rm(i)
 # PrimeList <- c(3, 5, 7, 11, 13)
