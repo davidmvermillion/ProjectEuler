@@ -14,7 +14,6 @@ while (x[i] > 1) {
   i <- i+1
 }
 
-
 # Find Integer Answers
 # Inspiration from https://stackoverflow.com/questions/3476782/check-if-the-number-is-integer
 # https://statisticsglobe.com/remove-element-from-list-in-r
@@ -27,13 +26,13 @@ EndTime <- Sys.time()
 EndTime - StartTime
 # Find Prime Answers
 # rm(i)
-# PrimeList <- c(3, 5, 7, 11, 13)
-# for i in 1:length(IntAns) {
-#   if IntAns !(%% PrimeList) {
-#     next
-#   }
-#     print(i)
-# }
+PrimeList <- c(3, 5, 7, 11, 13)
+for (i in 1:length(PrimeList)) {
+  if (IntAns[i] !%% PrimeList[i]) {
+    next
+  }
+    print(i)
+}
 PrimeTest1 <- IntAns%%2 != 0
 PrimeAns1 <- IntAns[PrimeTest1]
 PrimeTest2 <- PrimeAns1%%3 != 0
