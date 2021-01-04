@@ -1,22 +1,9 @@
 # Finding the largest prime factor of 600851475143
 
-# Import list of first million Primes
-# a <- scan(file = "FirstMillionPrimes.csv", what = integer(), sep = ",")
-# Tried importing from:
-# http://www.naturalnumbers.org/primes.html
-# http://www.mathematical.com/primes0to1000k.html
-# Import data errors present. Not willing to workout right now.
-
-
-
-
-
-
-
-
-# Clarified environemtn clearing function from
-# https://stackoverflow.com/questions/43336074/how-does-r-clear-all-global-environment-quickly?noredirect=1&lq=1
+# Clear environment
 rm(list=ls())
+install.packages(primes)
+library(primes)
 StartTime <- Sys.time()
 N <- 600851475143    # Max value
 x <- c(N,N-1)   # Starting vector
