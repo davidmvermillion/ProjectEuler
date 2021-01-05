@@ -9,9 +9,9 @@ N <- 90000000    # Max value
 x <- c(1, 1)   # Starting vector
 Primes <- generate_primes(min = 90000000, 900000000)
 
-for (i in 1:length(Primes)) {
-  if (N%%Primes[i]) !=0 next
-  x <- c(x, N/Primes[i])
+for (val in Primes) {
+  if (N%%val!=0) next
+  x <- c(x, N/val)
   i <- i + 1
 }
 
