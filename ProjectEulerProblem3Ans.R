@@ -2,11 +2,23 @@
 
 # Clear environment
 rm(list=ls())
-install.packages(primes)
-library(primes)
+# install.packages("primes")
+# library(primes)
 StartTime <- Sys.time()
-N <- 600851475143    # Max value
-x <- c(N,N-1)   # Starting vector
+N <- 90000000    # Max value
+x <- c(1, 1)   # Starting vector
+Primes <- generate_primes(min = 90000000, 900000000)
+
+for (i in 1:length(Primes)) {
+  if (N%%Primes[i]) !=0 next
+  x <- c(x, N/Primes[i])
+  i <- i + 1
+}
+
+EndTime <- Sys.time()
+EndTime - StartTime
+
+x <- c(1, 1)   # Starting vector
 i <- 2      # Starting iteration counter
 
 # Calculate all factors
