@@ -3,6 +3,37 @@
 # Clear environment
 rm(list=ls())
 # install.packages("primes")
+
+
+
+# Next method inspired by C++ and Python code from:
+# https://www.geeksforgeeks.org/find-largest-prime-factor-number/
+
+maxPrimeFactors <- function(n) {
+  # Smallest Prime (initialization value)
+  maxPrime = -1
+  
+  # 2s dividing N
+  while (N %% 2 == 0)
+    maxPrime = 2
+    N >= 1
+  }
+  
+  # Odd integers only
+  for (i in 3:(sqrt(N)+1)) {
+    while (N %% i == 0)
+    maxPrime = i
+    N = N/i
+  }
+
+  # Answer for primes > 2
+  if (N > 2){
+    maxPrime = n
+  }
+
+print(maxPrime)
+}
+
 library('groundhog')
 groundhog.day = "2021-01-03"
 groundhog.library('primes', groundhog.day)
