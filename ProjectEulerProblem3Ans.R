@@ -9,18 +9,18 @@ rm(list=ls())
 # Next method inspired by C++ and Python code from:
 # https://www.geeksforgeeks.org/find-largest-prime-factor-number/
 
-maxPrimeFactors <- function(n) {
+maxPrimeFactors <- function(N) {
   # Smallest Prime (initialization value)
   maxPrime = -1
   
   # 2s dividing N
-  while (N %% 2 == 0)
+  while (N %% 2 == 0){
     maxPrime = 2
     N >= 1
   }
   
   # Odd integers only
-  for (i in 3:(sqrt(N)+1)) {
+  for (i in seq(from = 3, to = sqrt(N)+1, by = 2)) {
     while (N %% i == 0)
     maxPrime = i
     N = N/i
@@ -33,6 +33,9 @@ maxPrimeFactors <- function(n) {
 
 print(maxPrime)
 }
+
+N <- 12
+maxPrimeFactors(N)
 
 library('groundhog')
 groundhog.day = "2021-01-03"
