@@ -4,6 +4,23 @@
 rm(list=ls())
 # install.packages("primes")
 
+# Trying nextinspiration from 
+# https://pastebin.com/M0qk0Kn8
+# https://math.stackexchange.com/questions/389675/largest-prime-factor-of-600851475143
+
+lpf <- lpf(x) {
+  lpf = 2
+  while (x > lpf)
+    if (x%%lpf == 0){
+      x <- x/lpf
+      lpf = 2
+    }
+      else 
+        lpf <- lpf + 1
+      
+  print(lpf)
+}
+
 
 
 # Next method inspired by C++ and Python code from:
