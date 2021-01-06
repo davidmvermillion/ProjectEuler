@@ -3,6 +3,9 @@
 # Clear environment
 rm(list=ls())
 # install.packages("primes")
+library('groundhog')
+groundhog.day = "2021-01-03"
+groundhog.library('primes', groundhog.day)
 # library(primes)
 StartTime <- Sys.time()
 N <- 90000000    # Max value
