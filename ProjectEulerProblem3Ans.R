@@ -4,9 +4,67 @@
 rm(list=ls())
 # install.packages("primes")
 
-# Trying nextinspiration from 
+# Next trying an iteration from https://projecteuler.net/overview=003
+N <- 600851475143
+if (N %% 2 == 0){
+  N <- N/2
+  lastFactor <- 2
+  while (N %% 2 == 0) {
+    N <- N/2
+  }
+  else {
+    lastFactor <- 1
+  }
+factor <- 3
+while (N > 1) {
+  if (N %% factor == 0) {
+    N <- N/factor
+    lastFactor <- factor
+    while (N %% factor == 0){
+      N <- N/factor
+    }
+  }
+  factor <- factor + 2
+}
+print(lastFactor)
+}
+
+
+# Trying next inspiration from 
 # https://pastebin.com/M0qk0Kn8
 # https://math.stackexchange.com/questions/389675/largest-prime-factor-of-600851475143
+
+# Python code was converted here from 2.7 to 3.6:
+# https://www.pythonconverter.com/
+
+library('groundhog')
+groundhog.day = "2021-01-03"
+# groundhog.library('primes', groundhog.day)
+groundhog.library('reticulate', groundhog.day)
+library('reticulate')
+
+# ```{python}
+# def lpf(x):
+#   lpf = 2;
+# while (x > lpf):
+#   if (x%lpf==0):
+#   x = x/lpf
+# lpf = 2
+# else:
+#   lpf+=1;
+# print(("Largest Prime Factor: %d" % (lpf)));
+# 
+# def main():
+#   x = int(input("Input long int:"))
+# lpf(x);
+# return 0;
+# 
+# if __name__ == '__main__':
+#   main()
+# ````
+
+
+x <- 600851475143
 
 lpf <- lpf(x) {
   lpf = 2
@@ -15,8 +73,9 @@ lpf <- lpf(x) {
       x <- x/lpf
       lpf = 2
     }
-      else 
+      else {
         lpf <- lpf + 1
+      }
       
   print(lpf)
 }
@@ -54,9 +113,7 @@ print(maxPrime)
 N <- 12
 maxPrimeFactors(N)
 
-library('groundhog')
-groundhog.day = "2021-01-03"
-groundhog.library('primes', groundhog.day)
+
 # library(primes)
 StartTime <- Sys.time()
 N <- 90000000    # Max value
