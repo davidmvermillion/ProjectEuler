@@ -5,6 +5,7 @@ rm(list=ls())
 # install.packages("primes")
 
 # Next trying an iteration from https://projecteuler.net/overview=003
+StartTime <- Sys.time()
 N <- 600851475143
 if (N %% 2 == 0){
   N <- N/2
@@ -28,7 +29,8 @@ while (N > 1) {
 }
 print(lastFactor)
 }
-
+EndTime <- Sys.time()
+EndTime - StartTime
 
 # Trying next inspiration from 
 # https://pastebin.com/M0qk0Kn8
