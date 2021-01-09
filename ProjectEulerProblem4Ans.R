@@ -36,3 +36,4 @@ for (i in l1) {
 }
 ans1 <- ans[-which(sapply(ans, is.null))]
 
+
