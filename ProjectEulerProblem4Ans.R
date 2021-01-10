@@ -30,22 +30,8 @@ palindromeNum <- function(N){
     }
   }
   print(maxProd)
-  # Decompose the Palindrome result
-  for (i in seq(maxProd, 1)){
-    for (j in seq(i, lowerLim-1, -1)){
-      if (i%%j == 0){
-        factor1 <- i/j
-      }
-    }
-  }
-  print(factor1)
 }
 
 palindromeNum(3)
 EndTime <- Sys.time()
 EndTime - StartTime
-
-
-# Decompose Palindrome ----------------------------------------------------
-
-
