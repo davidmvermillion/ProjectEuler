@@ -3,16 +3,51 @@
 rm(list=ls())
 
 
+
+# Modifying Existing Solution ---------------------------------------------
+# From:
+# https://www.geeksforgeeks.org/largest-palindrome-product-two-n-digit-numbers/
+palindromeNum <- function(N){
+  upperLim <- 0
+  for (i in 1:N+1) {
+    upperLim <- (upperLim*10) + 9
+  }
+  lowerLim <- 1 + floor(upperLim/10)    # Floor returns result rounded down to the nearest whole integer
+  maxProd <- 0
+  for (i in seq(upperLim, lowerLim-1, -1)){
+    for (j in seq(i, lowerLim-1, -1)){
+      prod <- i*j
+      if (prod < maxProd) next
+      num <- prod
+      rev <- 0
+      while (num != 0){
+        rev <- rev*10 + num%%10
+        num <- floor(num/10) 
+      }
+      if (prod == rev && prod > maxProd)
+        maxProd <- prod
+    }
+  }
+  print(maxProd)
+}
+
+
+
+
 # Test Cases --------------------------------------------------------------
 
 # https://stackoverflow.com/questions/26508519/how-to-add-elements-to-a-list-in-r-loop
-n <- 100    # Lower bound
-N <- 999    # Upper bound
+n1 <- 100000    # Lower bound
+N1 <- 999999    # Upper bound
+rangeEval <- N1-n1
+n2 <- 100
+N2 <- 999
 i <- 1    # Initialization counter value
 j <- 1
-l <- vector("list", N)    # Initialization list
+l <- vector("list", rangeEval)    # Initialization list
 # Create list of test cases
-for (i in n:N) {
+for (i in n1:N1) {
+  if (l[[i]]%%2)
   for (j in n:N){
     l[[j]] <- i*j
     j <- j + 1
