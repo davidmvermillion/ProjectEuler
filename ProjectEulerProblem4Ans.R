@@ -8,13 +8,17 @@ rm(list=ls())
 # https://stackoverflow.com/questions/26508519/how-to-add-elements-to-a-list-in-r-loop
 n <- 100    # Lower bound
 N <- 999    # Upper bound
-i <- 100    # Initialization counter value
+i <- 1    # Initialization counter value
 j <- 1
 l <- vector("list", N)    # Initialization list
 # Create list of test cases
 for (i in n:N) {
-  l[[i]] <- i^2
-  i <- i + 1
+  for (j in n:N){
+    l[[j]] <- i*j
+    j <- j + 1
+  }
+  # l[[i]] <- i^2
+  # i <- i + 1
 }
 
 # https://stackoverflow.com/questions/33004238/r-removing-null-elements-from-a-list
