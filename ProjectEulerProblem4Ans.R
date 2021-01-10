@@ -8,7 +8,8 @@ rm(list=ls())
 # https://stackoverflow.com/questions/26508519/how-to-add-elements-to-a-list-in-r-loop
 n <- 100    # Lower bound
 N <- 999    # Upper bound
-i <- 1    # Initialization counter value
+i <- 100    # Initialization counter value
+j <- 1
 l <- vector("list", N)    # Initialization list
 # Create list of test cases
 for (i in n:N) {
