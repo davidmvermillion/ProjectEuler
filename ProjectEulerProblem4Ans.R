@@ -35,3 +35,61 @@ palindromeNum <- function(N){
 palindromeNum(3)
 EndTime <- Sys.time()
 EndTime - StartTime
+
+
+# Time Each Set from 1 to 4 -----------------------------------------------
+
+StartTime <- Sys.time()
+palindromeNum(1)
+EndTime <- Sys.time()
+EndTime - StartTime
+
+StartTime <- Sys.time()
+palindromeNum(2)
+EndTime <- Sys.time()
+EndTime - StartTime
+
+StartTime <- Sys.time()
+palindromeNum(3)
+EndTime <- Sys.time()
+EndTime - StartTime
+
+StartTime <- Sys.time()
+palindromeNum(4)
+EndTime <- Sys.time()
+EndTime - StartTime
+
+timediff <- c(0.01795006, 0.01794982, 0.09075689, 3.044116)
+
+# Plot Palindromes from N = 1 to 10 ---------------------------------------
+PalList <- c(palindromeNum(1), palindromeNum(2),palindromeNum(3),palindromeNum(4))
+PalList1 <- as_tibble(PalList)
+Index <- c(1,2,3,4)
+PalPlotList <- cbind(Index, PalList)
+PPL <- as_tibble(PalPlotList)
+
+# Load date-matched packages
+library(groundhog)
+library(tidyverse)
+groundhog.day <- "2021-01-07"
+groundhog.library("tidyverse", groundhog.day)
+
+# Plot points
+# Fight with ggplot creating blank graphs later
+PPL %>%
+  ggplot(aes(x=PalList)) +
+  geom_bar()
+
+PPL %>%
+  ggplot(aes(x=Index, y=PalList)) +
+  geom_point() +
+  theme_classic()
+
+ggplot(PalList1, aes(value)) +
+  geom_bar() +
+  theme_classic()
+
+qplot(y=value, data = PalList1, geom = "bar")
+
+barplot(PalList)
+plot
