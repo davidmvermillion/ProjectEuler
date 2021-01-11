@@ -67,6 +67,10 @@ PalList1 <- as_tibble(PalList)
 Index <- c(1,2,3,4)
 PalPlotList <- cbind(Index, PalList)
 PPL <- as_tibble(PalPlotList)
+PalList2 <- log(PalList, 10)
+PalPlotList2 <- cbind(Index, PalList2)
+PPLL <- as_tibble(PalPlotList2)
+
 
 # Load date-matched packages
 library(groundhog)
@@ -91,10 +95,10 @@ linval <- PPL %>%
         axis.ticks = element_line(color = "grey80"),
         axis.text = element_text(color = "grey55"))
 
-logval <- PPL %>%
+logval <- PPLL %>%
   ggplot(aes(x=Index, y=PalList)) +
   geom_point(color="steelblue", size=5, shape=17) +
-  scale_y_continuous(trans='log2') +
+  # scale_y_continuous(trans='log2') +
   geom_smooth(method = lm) +
   # geom_segment(aes(x=Index, xend=Index, y=0, yend=PalList), size=3, color="steelblue") +
   theme_classic() +
@@ -111,16 +115,18 @@ values <- ggarrange(linval, logval,
           font.label = list(size = 14, color = "grey55", face = "plain", family = NULL))
   
 annotate_figure(values,
-                text_grob("Product Values of Two Factors of Digits of Length N", size = 18, face = "plain"),
-                text_grob("Near linearity implies almost \n             exponential growth", hjust =-.8))
+                text_grob("Product Values of Two Factors of Digits of Length N", size = 18, face = "plain"))
 
 
 # Plot Time ---------------------------------------------------------------
 
 TimeDiffList <- cbind(Index, timediff)
 TDL <- as_tibble(TimeDiffList)
+timediff2 <- log(timediff, 10)
+TimeDiffList2 <- cbind(Index, timediff2)
+TDLL <- as_tibble(TimeDiffList2)
 
-lins <- TDL %>%
+TDL %>%
   ggplot(aes(x=Index, y=timediff)) +
   geom_point(color="steelblue", size=5, shape=17) +
   # geom_segment(aes(x=Index, xend=Index, y=0, yend=PalList), size=3, color="steelblue") +
@@ -133,7 +139,7 @@ lins <- TDL %>%
         axis.ticks = element_line(color = "grey80"),
         axis.text = element_text(color = "grey55"))
 
-logval <- PPL %>%
+TDL %>%
   ggplot(aes(x=Index, y=PalList)) +
   geom_point(color="steelblue", size=5, shape=17) +
   scale_y_continuous(trans='log2') +
