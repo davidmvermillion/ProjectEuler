@@ -96,7 +96,7 @@ linval <- PPL %>%
         axis.text = element_text(color = "grey55"))
 
 logval <- PPLL %>%
-  ggplot(aes(x=Index, y=PalList)) +
+  ggplot(aes(x=Index, y=PalList2)) +
   geom_point(color="steelblue", size=5, shape=17) +
   # scale_y_continuous(trans='log2') +
   geom_smooth(method = lm) +
@@ -126,23 +126,23 @@ timediff2 <- log(timediff, 10)
 TimeDiffList2 <- cbind(Index, timediff2)
 TDLL <- as_tibble(TimeDiffList2)
 
-TDL %>%
+lins <- TDL %>%
   ggplot(aes(x=Index, y=timediff)) +
   geom_point(color="steelblue", size=5, shape=17) +
   # geom_segment(aes(x=Index, xend=Index, y=0, yend=PalList), size=3, color="steelblue") +
   theme_classic() +
-  # labs(title = "Product Value of Two Factors of Digits 1–4") +
-  theme(axis.title.y = element_blank(),
+  labs(y = "Computation \n Time [s]") +
+  theme(axis.title.y = element_text(angle = 0, vjust = 0, color = "grey55"),
         axis.title.x = element_blank(),
         plot.title = element_text(hjust = 0.5, color = "grey55", size = 30),
         axis.line = element_line(color = "grey80"),
         axis.ticks = element_line(color = "grey80"),
         axis.text = element_text(color = "grey55"))
 
-TDL %>%
-  ggplot(aes(x=Index, y=PalList)) +
+logs <- TDLL %>%
+  ggplot(aes(x=Index, y=timediff2)) +
   geom_point(color="steelblue", size=5, shape=17) +
-  scale_y_continuous(trans='log2') +
+  # scale_y_continuous(trans='log2') +
   geom_smooth(method = lm) +
   # geom_segment(aes(x=Index, xend=Index, y=0, yend=PalList), size=3, color="steelblue") +
   theme_classic() +
@@ -154,13 +154,12 @@ TDL %>%
         axis.ticks = element_line(color = "grey80"),
         axis.text = element_text(color = "grey55"))
 
-values <- ggarrange(linval, logval,
+values <- ggarrange(lins, logs,
                     labels = c("Linear Scale", "    Log Scale"), hjust = -1.8,
                     font.label = list(size = 14, color = "grey55", face = "plain", family = NULL))
 
 annotate_figure(values,
-                text_grob("Product Values of Two Factors of Digits of Length N", size = 18, face = "plain"),
-                text_grob("Near linearity implies almost \n             exponential growth", hjust =-.8))
+                text_grob("Product Values of Two Factors of Digits of Length N", size = 18, face = "plain"))
 
 
 # Plot Fights -------------------------------------------------------------
