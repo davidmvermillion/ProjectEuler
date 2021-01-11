@@ -71,23 +71,108 @@ PPL <- as_tibble(PalPlotList)
 # Load date-matched packages
 library(groundhog)
 library(tidyverse)
+library(ggpubr)
 groundhog.day <- "2021-01-07"
 groundhog.library("tidyverse", groundhog.day)
 
-# Plot points
+# Plot points ----
+
+
+linval <- PPL %>%
+  ggplot(aes(x=Index, y=PalList)) +
+  geom_point(color="steelblue", size=5, shape=17) +
+  # geom_segment(aes(x=Index, xend=Index, y=0, yend=PalList), size=3, color="steelblue") +
+  theme_classic() +
+  # labs(title = "Product Value of Two Factors of Digits 1–4") +
+  theme(axis.title.y = element_blank(),
+        axis.title.x = element_blank(),
+        plot.title = element_text(hjust = 0.5, color = "grey55", size = 30),
+        axis.line = element_line(color = "grey80"),
+        axis.ticks = element_line(color = "grey80"),
+        axis.text = element_text(color = "grey55"))
+
+logval <- PPL %>%
+  ggplot(aes(x=Index, y=PalList)) +
+  geom_point(color="steelblue", size=5, shape=17) +
+  scale_y_continuous(trans='log2') +
+  geom_smooth(method = lm) +
+  # geom_segment(aes(x=Index, xend=Index, y=0, yend=PalList), size=3, color="steelblue") +
+  theme_classic() +
+  # labs(title = "Product Value of Two Factors of Digits 1–4") +
+  theme(axis.title.y = element_blank(),
+        axis.title.x = element_blank(),
+        plot.title = element_text(hjust = 0.5, color = "grey55", size = 30),
+        axis.line = element_line(color = "grey80"),
+        axis.ticks = element_line(color = "grey80"),
+        axis.text = element_text(color = "grey55"))
+
+values <- ggarrange(linval, logval,
+          labels = c("Linear Scale", "    Log Scale"), hjust = -1.8,
+          font.label = list(size = 14, color = "grey55", face = "plain", family = NULL))
+  
+annotate_figure(values,
+                text_grob("Product Values of Two Factors of Digits of Length N", size = 18, face = "plain"),
+                text_grob("Near linearity implies almost \n             exponential growth", hjust =-.8))
+
+
+# Plot Time ---------------------------------------------------------------
+
+TimeDiffList <- cbind(Index, timediff)
+TDL <- as_tibble(TimeDiffList)
+
+lins <- TDL %>%
+  ggplot(aes(x=Index, y=timediff)) +
+  geom_point(color="steelblue", size=5, shape=17) +
+  # geom_segment(aes(x=Index, xend=Index, y=0, yend=PalList), size=3, color="steelblue") +
+  theme_classic() +
+  # labs(title = "Product Value of Two Factors of Digits 1–4") +
+  theme(axis.title.y = element_blank(),
+        axis.title.x = element_blank(),
+        plot.title = element_text(hjust = 0.5, color = "grey55", size = 30),
+        axis.line = element_line(color = "grey80"),
+        axis.ticks = element_line(color = "grey80"),
+        axis.text = element_text(color = "grey55"))
+
+logval <- PPL %>%
+  ggplot(aes(x=Index, y=PalList)) +
+  geom_point(color="steelblue", size=5, shape=17) +
+  scale_y_continuous(trans='log2') +
+  geom_smooth(method = lm) +
+  # geom_segment(aes(x=Index, xend=Index, y=0, yend=PalList), size=3, color="steelblue") +
+  theme_classic() +
+  # labs(title = "Product Value of Two Factors of Digits 1–4") +
+  theme(axis.title.y = element_blank(),
+        axis.title.x = element_blank(),
+        plot.title = element_text(hjust = 0.5, color = "grey55", size = 30),
+        axis.line = element_line(color = "grey80"),
+        axis.ticks = element_line(color = "grey80"),
+        axis.text = element_text(color = "grey55"))
+
+values <- ggarrange(linval, logval,
+                    labels = c("Linear Scale", "    Log Scale"), hjust = -1.8,
+                    font.label = list(size = 14, color = "grey55", face = "plain", family = NULL))
+
+annotate_figure(values,
+                text_grob("Product Values of Two Factors of Digits of Length N", size = 18, face = "plain"),
+                text_grob("Near linearity implies almost \n             exponential growth", hjust =-.8))
+
+
+# Plot Fights -------------------------------------------------------------
+
 # Fight with ggplot creating blank graphs later
 PPL %>%
   ggplot(aes(x=PalList)) +
   geom_bar()
 
-PPL %>%
-  ggplot(aes(x=Index, y=PalList)) +
-  geom_point() +
-  theme_classic()
-
 ggplot(PalList1, aes(value)) +
   geom_bar() +
   theme_classic()
+
+# Correction from akrun on stackoverflow
+# https://stackoverflow.com/questions/65659177/why-is-my-ggplot2-bar-graph-not-displaying
+ggplot(PPL, aes(x = Index, y = PalList)) +  font.label = list(size = 14, color = "black", face = "bold", family = NULL)
+  geom_bar(stat = 'identity') + 
+  scale_x_continuous(breaks = Index, labels = PalList)
 
 qplot(y=value, data = PalList1, geom = "bar")
 
