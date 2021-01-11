@@ -129,7 +129,6 @@ TDLL <- as_tibble(TimeDiffList2)
 lins <- TDL %>%
   ggplot(aes(x=Index, y=timediff)) +
   geom_point(color="steelblue", size=5, shape=17) +
-  # geom_segment(aes(x=Index, xend=Index, y=0, yend=PalList), size=3, color="steelblue") +
   theme_classic() +
   labs(y = "Computation \n Time [s]") +
   theme(axis.title.y = element_text(angle = 0, vjust = 0, color = "grey55"),
@@ -142,11 +141,8 @@ lins <- TDL %>%
 logs <- TDLL %>%
   ggplot(aes(x=Index, y=timediff2)) +
   geom_point(color="steelblue", size=5, shape=17) +
-  # scale_y_continuous(trans='log2') +
   geom_smooth(method = lm) +
-  # geom_segment(aes(x=Index, xend=Index, y=0, yend=PalList), size=3, color="steelblue") +
   theme_classic() +
-  # labs(title = "Product Value of Two Factors of Digits 1–4") +
   theme(axis.title.y = element_blank(),
         axis.title.x = element_blank(),
         plot.title = element_text(hjust = 0.5, color = "grey55", size = 30),
@@ -159,7 +155,7 @@ values <- ggarrange(lins, logs,
                     font.label = list(size = 14, color = "grey55", face = "plain", family = NULL))
 
 annotate_figure(values,
-                text_grob("Product Values of Two Factors of Digits of Length N", size = 18, face = "plain"))
+                text_grob("Computation Time for the Palindrome Function", size = 18, face = "plain"))
 
 
 # Plot Fights -------------------------------------------------------------
