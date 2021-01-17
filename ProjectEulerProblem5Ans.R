@@ -12,6 +12,7 @@ for (i in 1:TestLim){
   for (a in 2:Targ) { # Ignoring 1 since all integers divide by 1
     if (a %% i == 0) {
       N <- a
+      i <- i + 1
       next
     }
     else{
@@ -20,3 +21,6 @@ for (i in 1:TestLim){
   }
   print(N)
 }
+
+EndTime <- Sys.time()
+EndTime - StartTime
