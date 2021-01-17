@@ -1,0 +1,1 @@
+# Find the smallest number divisible by all integers from 1 to 20 with no remainder
