@@ -13,9 +13,12 @@ for (i in 1:TestLim){
     if (a %% i == 0) {
       N <- a
       i <- i + 1
+      a <- a +1
       next
     }
     else{
+      i <- i + 1
+      a <- a + 1
       next
     }
   }
