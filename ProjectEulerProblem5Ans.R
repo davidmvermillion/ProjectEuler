@@ -8,6 +8,22 @@ TestLim <- 1000000
 N <- 1
 Targ <- 20
 poss <- c(1,2)
+i <- 1
+
+while (i > 0){
+  for (a in seq(2,Targ,1)){
+    if (i %% a == 0){
+      print(i)
+      break
+    }
+    else{
+      i <- i + 1
+      break
+    }
+  }
+  print(i)
+  break
+}
 
 for (i in 1:TestLim){
   if (i %% 2 == 0) {
