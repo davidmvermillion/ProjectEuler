@@ -12,15 +12,16 @@ for (i in 1:TestLim){
   for (a in 2:Targ) { # Ignoring 1 since all integers divide by 1
     if (i %% a == 0) {
       N <- a
-      a <- a +1
+      a <- a + 1
+      i <- i + 1
       next
     }
     else{
       a <- a + 1
+      i <- i + 1
       break
     }
   }
-  i <- i +1
   print(N)
 }
 
