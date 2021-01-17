@@ -140,6 +140,17 @@ for (i in 1:TestLim){
   #   }
   # }
   # poss <- c(poss, N)
+# }
+num <- as.integer(4)
+range <- 1:num
+for(i in range) {
+  factorial = factorial * i
+}
+print(factorial)
+
+
+for(i in 1:num) {                                        # Head of for-loop
+  print(paste("This iteration represents range value", i))  # Code block
 }
 
 EndTime <- Sys.time()
