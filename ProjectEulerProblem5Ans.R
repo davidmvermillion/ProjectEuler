@@ -17,7 +17,7 @@ for (i in 1:TestLim){
     }
     else{
       a <- a + 1
-      next
+      break
     }
   }
   i <- i +1
