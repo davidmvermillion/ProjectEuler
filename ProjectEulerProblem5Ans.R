@@ -5,17 +5,31 @@ rm(list=ls())
 StartTime <- Sys.time()
 
 TestLim <- 1000000
-N <- 1
+# N <- 1
 Targ <- 20
-poss <- c(1,2)
+# poss <- c(1,2)
 i <- 1
+
+while (i < TestLim){
+  for (a in 2:Targ){
+    if (i %% a == 0){
+      a <- a + 1
+      i <- i + 1
+    }
+  }
+}
+
+# Utilize and operator in above if statement (remove for statement)
+# if i%%2==0 & i%%3==0 & ...
+
 
 while (i > 0){
   for (a in seq(2,Targ,1)){
     if (i %% a == 0){
-      print(i)
-      break
+      a <- a + 1
+      i <- i + 1
     }
+    print(i)
     else{
       i <- i + 1
       break
