@@ -4,18 +4,27 @@ rm(list=ls())
 
 StartTime <- Sys.time()
 
-TestLim <- 10000000
+TestLim <- 10000
 i <- 1
 
-TestLim1 <- 10000
-x <- c(1, 2)
-i <- 2
+# Generate sequence of numbers divisible by specific numbers
+List2 <- seq(2,TestLim,2)
+List3 <- seq(3,TestLim,3)
+List4 <- seq(4,TestLim,4)
+List5 <- seq(5,TestLim,5)
+List6 <- seq(6,TestLim,6)
+List7 <- seq(7,TestLim,7)
+List8 <- seq(8,TestLim,8)
 
-while (x[i] < TestLim1) {
-  if (x[i]%%2!=0) break
-  x <- c(x, i)
-  i <- i+1
-}
+
+# TestLim1 <- 1000
+# x <- c(1, 2)
+# i <- 2
+# 
+# while (x[i] < TestLim1) {
+#   x <- c(x, i)
+#   i <- i+2
+# }
 
 
 while (i < TestLim){
