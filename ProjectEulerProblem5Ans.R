@@ -28,7 +28,7 @@ List19 <- seq(19,TestLim,19)
 List20 <- seq(20,TestLim,20)
 
 
-# Manually intersecting lists, round 1
+# Manually intersecting lists
 
 T1.1 <- intersect(List2, List3)
 T1.2 <- intersect(T1.1, List4)
@@ -48,6 +48,9 @@ T1.15 <- intersect(T1.14, List17)
 T1.16 <- intersect(T1.15, List18)
 T1.17 <- intersect(T1.16, List19)
 T1.18 <- intersect(T1.17, List20)
+
+
+cat("The final answer is:", T1.18[1])
 
 
 EndTime <- Sys.time()
