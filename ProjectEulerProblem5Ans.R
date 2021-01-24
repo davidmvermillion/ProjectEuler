@@ -52,6 +52,21 @@ d19 <- as.data.frame(List19)
 d20 <- as.data.frame(List20)
 
 
+# Hints from https://aaronschlegel.me/set-union-intersection-r.html
+
+
+set.intersection <- function(a, b) {
+  intersect <- vector()
+  
+  for (i in 1:length(a)) {
+    if (a[i] %in% b) {
+      intersect <- append(intersect, a[i])
+    }
+  }
+  return(intersect)
+}
+
+
 # Next up:
 # Make data frames and perform an inner join
 # Combine lists into array
