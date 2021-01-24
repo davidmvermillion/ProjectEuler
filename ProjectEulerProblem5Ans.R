@@ -2,8 +2,6 @@
 
 rm(list=ls())
 
-library(dplyr)
-
 StartTime <- Sys.time()
 
 TestLim <- 10000
@@ -29,6 +27,38 @@ List18 <- seq(18,TestLim,18)
 List19 <- seq(19,TestLim,19)
 List20 <- seq(20,TestLim,20)
 
+
+# Manually intersecting lists, round 1
+
+T1.1 <- intersect(List2, List3)
+T1.2 <- intersect(T1.1, List4)
+T1.3 <- intersect(T1.2, List5)
+T1.4 <- intersect(T1.3, List6)
+T1.5 <- intersect(T1.4, List7)
+T1.6 <- intersect(T1.5, List8)
+T1.7 <- intersect(T1.6, List9)
+T1.8 <- intersect(T1.7, List10)
+T1.9 <- intersect(T1.8, List11)
+T1.10 <- intersect(T1.9, List12)
+T1.11 <- intersect(T1.10, List13)
+T1.12 <- intersect(T1.11, List14)
+T1.13 <- intersect(T1.12, List15)
+T1.14 <- intersect(T1.13, List16)
+T1.15 <- intersect(T1.14, List17)
+T1.16 <- intersect(T1.15, List18)
+T1.17 <- intersect(T1.16, List19)
+T1.18 <- intersect(T1.17, List20)
+
+
+
+# Manually intersecting lists, round 2
+
+T2.1 <- intersect(T1.1, T1.2)
+T2.2 <- intersect(T1.3, T1.4)
+T2.3 <- intersect(T1.5, T1.6)
+T2.4 <- intersect(T1.7, T1.8)
+T2.5 <- intersect(T1.9, List20)
+
 # Convert to dataframe
 
 d2 <- as.data.frame(List2)
@@ -52,23 +82,10 @@ d19 <- as.data.frame(List19)
 d20 <- as.data.frame(List20)
 
 
-# Hints from https://aaronschlegel.me/set-union-intersection-r.html
-
-
-set.intersection <- function(a, b) {
-  intersect <- vector()
-  
-  for (i in 1:length(a)) {
-    if (a[i] %in% b) {
-      intersect <- append(intersect, a[i])
-    }
-  }
-  return(intersect)
-}
-
 
 # Next up:
-# Make data frames and perform an inner join
+# Make data frames and perform an inner join or
+
 # Combine lists into array
 # Call array for interative intersections
 # Lowest resultant intersection should be answer
