@@ -2,6 +2,8 @@
 
 rm(list=ls())
 
+library(dplyr)
+
 StartTime <- Sys.time()
 
 TestLim <- 10000
@@ -27,8 +29,31 @@ List18 <- seq(18,TestLim,18)
 List19 <- seq(19,TestLim,19)
 List20 <- seq(20,TestLim,20)
 
+# Convert to dataframe
+
+d2 <- as.data.frame(List2)
+d3 <- as.data.frame(List3)
+d4 <- as.data.frame(List4)
+d5 <- as.data.frame(List5)
+d6 <- as.data.frame(List6)
+d7 <- as.data.frame(List7)
+d8 <- as.data.frame(List8)
+d9 <- as.data.frame(List9)
+d10 <- as.data.frame(List10)
+d11 <- as.data.frame(List11)
+d12 <- as.data.frame(List12)
+d13 <- as.data.frame(List13)
+d14 <- as.data.frame(List14)
+d15 <- as.data.frame(List15)
+d16 <- as.data.frame(List16)
+d17 <- as.data.frame(List17)
+d18 <- as.data.frame(List18)
+d19 <- as.data.frame(List19)
+d20 <- as.data.frame(List20)
+
 
 # Next up:
+# Make data frames and perform an inner join
 # Combine lists into array
 # Call array for interative intersections
 # Lowest resultant intersection should be answer
