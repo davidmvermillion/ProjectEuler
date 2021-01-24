@@ -4,7 +4,7 @@ rm(list=ls())
 
 StartTime <- Sys.time()
 
-TestLim <- 100000000
+TestLim <- 1000000000
 
 # Generate sequence of numbers divisible by specific numbers
 List2 <- seq(2,TestLim,2)
