@@ -93,6 +93,8 @@ datamap <- UT %>%
             ymin = 4.9e8, ymax = 5.07e8, alpha = 0.008, show.legend = FALSE, fill = "grey68") +
   geom_rect(aes(xmin = 16.75, xmax = 18.25),
             ymin = 5.79e8, ymax = 5.85e8, alpha = 0.05, show.legend = FALSE, fill = "orangered2") +
+  geom_rect(aes(xmin = 4.9, xmax = 13.1),
+            ymin = 5.45e8, ymax = 5.625e8, alpha = 0.05, show.legend = FALSE, fill = "grey95") +
   geom_point(color = "steelblue", shape = 18, size = 5) +
   #geom_line(color = "grey60") +
   theme_classic() +
@@ -121,19 +123,19 @@ datamap <- UT %>%
     curvature = .5, color = "grey40", arrow = arrow(length = unit(2, "mm"))
   ) +
   annotate(
-    geom = "text", x = 4, y = 5.6e8,
+    geom = "text", x = 5, y = 5.6e8,
     label = "The mean union value is mostly stable below n = 18", hjust = 0, vjust = 1, size = 4, color = "grey20"
   ) +
   annotate(
-    geom = "text", x = 4, y = 5.548e8,
+    geom = "text", x = 5, y = 5.548e8,
     label = "but jumps by", hjust = 0, vjust = 1, size = 4, color = "grey20"
   ) +
   annotate(
-    geom = "text", x = 6.3, y = 5.56e8,
+    geom = "text", x = 7.3, y = 5.56e8,
     label = "13.7%", hjust = 0, vjust = 1, size = 8, color = "steelblue"
   ) +
   annotate(
-    geom = "text", x = 4, y = 5.5e8,
+    geom = "text", x = 5, y = 5.5e8,
     label = "when including n = 19", hjust = 0, vjust = 1, size = 4, color = "grey20"
   ) +
   labs(y = "Value") +
