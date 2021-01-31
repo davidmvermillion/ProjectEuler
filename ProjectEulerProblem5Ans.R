@@ -89,11 +89,13 @@ UT <- as_tibble(unions)
 
 datamap <- UT %>% 
   ggplot(aes(x = seq_along(value), y = value)) +
+  geom_rect(aes(xmin = 0.75, xmax = 16.25),
+            ymin = 4.9e8, ymax = 5.07e8, alpha = 0.008, show.legend = FALSE, fill = "grey68") +
+  geom_rect(aes(xmin = 16.75, xmax = 18.25),
+            ymin = 5.79e8, ymax = 5.85e8, alpha = 0.05, show.legend = FALSE, fill = "orangered2") +
   geom_point(color = "steelblue", shape = 18, size = 5) +
   #geom_line(color = "grey60") +
   theme_classic() +
-  geom_rect(aes(xmin = 0.75, xmax = 16.25),
-              ymin = 4.9e8, ymax = 5.08e8, alpha = 0.008, show.legend = FALSE, fill = "grey68") +
   annotate(
     geom = "text", x = 0.75, y = 5.15e8,
     label = "50,000,001 \nunion of 2s and 3s", hjust = 0, vjust = 1, size = 4, color = "grey20"
@@ -110,8 +112,6 @@ datamap <- UT %>%
     geom = "curve", x = 15.75, y = 5.12e8, xend = 15.87, yend = 5.031e8,
     curvature = .3, color = "grey40", arrow = arrow(length = unit(2, "mm"))
   ) +
-  geom_rect(aes(xmin = 16.75, xmax = 18.25),
-            ymin = 5.79e8, ymax = 5.85e8, alpha = 0.008, show.legend = FALSE, fill = "red") +
   labs(y = "Value") +
   labs(x = "Unions 1–18") +
   labs(title = "Mean Value of Iterated Unions") +
