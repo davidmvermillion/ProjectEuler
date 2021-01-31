@@ -98,7 +98,7 @@ datamap <- UT %>%
   theme_classic() +
   annotate(
     geom = "text", x = 0.75, y = 5.15e8,
-    label = "50,000,001 \nunion of 2s and 3s", hjust = 0, vjust = 1, size = 4, color = "grey20"
+    label = "500,000,001 \nunion of 2s and 3s", hjust = 0, vjust = 1, size = 4, color = "grey20"
   ) +
   annotate(
     geom = "curve", x = 0.75, y = 5.12e8, xend = 0.9, yend = 5.01e8,
@@ -106,11 +106,19 @@ datamap <- UT %>%
   ) +
   annotate(
     geom = "text", x = 15.75, y = 5.15e8,
-    label = "52,341,840 \nunion of #s \u2264 19", hjust = 0, vjust = 1, size = 4, color = "grey20"
+    label = "502,341,840 \nunion of #s \u2264 18", hjust = 0, vjust = 1, size = 4, color = "grey20"
   ) +
   annotate(
     geom = "curve", x = 15.75, y = 5.12e8, xend = 15.87, yend = 5.031e8,
     curvature = .3, color = "grey40", arrow = arrow(length = unit(2, "mm"))
+  ) +
+  annotate(
+    geom = "text", x = 15.75, y = 5.75e8,
+    label = "581,981,400 \nunion of #s \u2264 19", hjust = 0, vjust = 1, size = 4, color = "grey20"
+  ) +
+  annotate(
+    geom = "curve", x = 17.75, y = 5.73e8, xend = 17.2, yend = 5.82e8,
+    curvature = .5, color = "grey40", arrow = arrow(length = unit(2, "mm"))
   ) +
   labs(y = "Value") +
   labs(x = "Unions 1–18") +
