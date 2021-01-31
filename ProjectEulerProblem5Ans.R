@@ -96,7 +96,6 @@ datamap <- UT %>%
   geom_rect(aes(xmin = 4.9, xmax = 13.1),
             ymin = 5.45e8, ymax = 5.625e8, alpha = 0.05, show.legend = FALSE, fill = "grey95") +
   geom_point(color = "steelblue", shape = 18, size = 5) +
-  #geom_line(color = "grey60") +
   theme_classic() +
   annotate(
     geom = "text", x = 0.75, y = 5.15e8,
