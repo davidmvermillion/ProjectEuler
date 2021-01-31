@@ -120,6 +120,22 @@ datamap <- UT %>%
     geom = "curve", x = 17.75, y = 5.73e8, xend = 17.2, yend = 5.82e8,
     curvature = .5, color = "grey40", arrow = arrow(length = unit(2, "mm"))
   ) +
+  annotate(
+    geom = "text", x = 4, y = 5.6e8,
+    label = "The mean union value is mostly stable below n = 18", hjust = 0, vjust = 1, size = 4, color = "grey20"
+  ) +
+  annotate(
+    geom = "text", x = 4, y = 5.548e8,
+    label = "but jumps by", hjust = 0, vjust = 1, size = 4, color = "grey20"
+  ) +
+  annotate(
+    geom = "text", x = 6.3, y = 5.56e8,
+    label = "13.7%", hjust = 0, vjust = 1, size = 8, color = "steelblue"
+  ) +
+  annotate(
+    geom = "text", x = 4, y = 5.5e8,
+    label = "when including n = 19", hjust = 0, vjust = 1, size = 4, color = "grey20"
+  ) +
   labs(y = "Value") +
   labs(x = "Unions 1–18") +
   labs(title = "Mean Value of Iterated Unions") +
