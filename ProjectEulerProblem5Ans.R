@@ -55,3 +55,59 @@ cat("The final answer is:", T1.18[1])
 
 EndTime <- Sys.time()
 EndTime - StartTime
+
+
+# Plotting ----------------------------------------------------------------
+
+library(tidyverse)
+
+# Create data to measure central tendency of unions
+a <- mean(T1.1)
+b <- mean(T1.2)
+c <- mean(T1.3)
+d <- mean(T1.4)
+e <- mean(T1.5)
+f <- mean(T1.6)
+g <- mean(T1.7)
+h <- mean(T1.8)
+i <- mean(T1.9)
+j <- mean(T1.10)
+k <- mean(T1.11)
+l <- mean(T1.12)
+m <- mean(T1.13)
+n <- mean(T1.14)
+o <- mean(T1.15)
+p <- mean(T1.16)
+q <- mean(T1.17)
+r <- mean(T1.18)
+unions <- c(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r)
+UT <- as_tibble(unions)
+
+# Plot UT
+
+# New tips from: https://ggplot2-book.org/annotations.html
+
+datamap <- UT %>% 
+  ggplot(aes(x = seq_along(value), y = value)) +
+  geom_point(color = "steelblue", shape = 18, size = 5) +
+  #geom_line(color = "grey60") +
+  theme_classic() +
+  # annotate(
+  #   geom = "curve", x = 5e9, y = 35, xend = 5.65e9, yend = 27, 
+  #   curvature = .3, arrow = arrow(length = unit(2, "mm"))
+  # ) +
+  # annotate(
+  #   geom_rect(aes(xmin = 0.5, xmax = 16.25, fill = "red")),
+  #             ymin = 4.9e8, ymax = 5.3e9, alpha = 0.2
+  # ) +
+  # annotate() +
+  labs(y = "Value") +
+  labs(x = "Unions 1–18") +
+  labs(title = "Mean Value of Iterated Unions") +
+  theme(axis.title.y = element_text(angle = 0, vjust = 0, color = "grey55"),
+        axis.title.x = element_text(color = "grey55", hjust = 0),
+        plot.title = element_text(hjust = 0.5, color = "grey55", size = 30),
+        axis.line = element_line(color = "grey80"),
+        axis.ticks = element_blank(),
+        axis.text = element_blank())
+datamap
