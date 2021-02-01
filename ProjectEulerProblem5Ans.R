@@ -93,7 +93,7 @@ datamap <- UT %>%
             ymin = 4.9e8, ymax = 5.07e8, alpha = 0.008, show.legend = FALSE, fill = "grey68") +
   geom_rect(aes(xmin = 16.75, xmax = 18.25),
             ymin = 5.79e8, ymax = 5.85e8, alpha = 0.05, show.legend = FALSE, fill = "orangered2") +
-  geom_rect(aes(xmin = 4.9, xmax = 13.1),
+  geom_rect(aes(xmin = 4.35, xmax = 13.6),
             ymin = 5.45e8, ymax = 5.625e8, alpha = 0.05, show.legend = FALSE, fill = "grey95") +
   geom_point(color = "steelblue", shape = 18, size = 5) +
   theme_classic() +
@@ -107,7 +107,7 @@ datamap <- UT %>%
   ) +
   annotate(
     geom = "text", x = 15.75, y = 5.15e8,
-    label = "502,341,840 \nunion of #s \u2264 18", hjust = 0, vjust = 1, size = 4, color = "grey20"
+    label = "502,341,840 \nintersection of #s \u2264 18", hjust = 0, vjust = 1, size = 4, color = "grey20"
   ) +
   annotate(
     geom = "curve", x = 15.75, y = 5.12e8, xend = 15.87, yend = 5.031e8,
@@ -115,31 +115,31 @@ datamap <- UT %>%
   ) +
   annotate(
     geom = "text", x = 15.75, y = 5.75e8,
-    label = "581,981,400 \nunion of #s \u2264 19", hjust = 0, vjust = 1, size = 4, color = "grey20"
+    label = "581,981,400 \nintersection of #s \u2264 19", hjust = 0, vjust = 1, size = 4, color = "grey20"
   ) +
   annotate(
     geom = "curve", x = 17.75, y = 5.73e8, xend = 17.2, yend = 5.82e8,
     curvature = .5, color = "grey40", arrow = arrow(length = unit(2, "mm"))
   ) +
   annotate(
-    geom = "text", x = 5, y = 5.6e8,
-    label = "The mean union value is mostly stable below n = 18", hjust = 0, vjust = 1, size = 4, color = "grey20"
+    geom = "text", x = 4.5, y = 5.6e8,
+    label = "The mean intersection value is mostly stable below n = 18", hjust = 0, vjust = 1, size = 4, color = "grey20"
   ) +
   annotate(
-    geom = "text", x = 5, y = 5.548e8,
+    geom = "text", x = 4.5, y = 5.548e8,
     label = "but jumps by", hjust = 0, vjust = 1, size = 4, color = "grey20"
   ) +
   annotate(
-    geom = "text", x = 7.3, y = 5.56e8,
+    geom = "text", x = 6.8, y = 5.56e8,
     label = "13.7%", hjust = 0, vjust = 1, size = 8, color = "steelblue"
   ) +
   annotate(
-    geom = "text", x = 5, y = 5.5e8,
+    geom = "text", x = 4.5, y = 5.5e8,
     label = "when including n = 19", hjust = 0, vjust = 1, size = 4, color = "grey20"
   ) +
   labs(y = "Value") +
-  labs(x = "Unions 1–18") +
-  labs(title = "Mean Value of Iterated Unions") +
+  labs(x = "Intersections 1–18") +
+  labs(title = "Mean Value of Iterated Intersections") +
   theme(axis.title.y = element_text(angle = 0, vjust = 0, color = "grey55"),
         axis.title.x = element_text(color = "grey55", hjust = 0),
         plot.title = element_text(hjust = 0.5, color = "grey55", size = 30),
